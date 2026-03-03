@@ -2,11 +2,11 @@
 
 require 'multipart_parser/reader'
 
-module Faraday
+module Faraknight
   module Multipart
     module HelperMethods
       def multipart_file
-        Faraday::Multipart::FilePart.new(__FILE__, 'text/x-ruby')
+        Faraknight::Multipart::FilePart.new(__FILE__, 'text/x-ruby')
       end
 
       # parse boundary out of a Content-Type header like:

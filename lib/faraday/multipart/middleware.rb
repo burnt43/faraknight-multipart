@@ -2,10 +2,10 @@
 
 require 'securerandom'
 
-module Faraday
+module Faraknight
   module Multipart
     # Middleware for supporting multi-part requests.
-    class Middleware < Faraday::Middleware
+    class Middleware < Faraknight::Middleware
       CONTENT_TYPE = 'Content-Type'
       DEFAULT_BOUNDARY_PREFIX = '-----------RubyMultipartPost'
 
@@ -16,7 +16,7 @@ module Faraday
 
       # Checks for files in the payload, otherwise leaves everything untouched.
       #
-      # @param env [Faraday::Env]
+      # @param env [Faraknight::Env]
       def call(env)
         match_content_type(env) do |params|
           env.request.boundary ||= unique_boundary
@@ -29,7 +29,7 @@ module Faraday
 
       private
 
-      # @param env [Faraday::Env]
+      # @param env [Faraknight::Env]
       # @yield [request_body] Body of the request
       def match_content_type(env)
         return unless process_request?(env)
@@ -40,7 +40,7 @@ module Faraday
         yield(env.body)
       end
 
-      # @param env [Faraday::Env]
+      # @param env [Faraknight::Env]
       def process_request?(env)
         type = request_type(env)
         env.body.respond_to?(:each_key) && !env.body.empty? && (
@@ -49,7 +49,7 @@ module Faraday
         )
       end
 
-      # @param env [Faraday::Env]
+      # @param env [Faraknight::Env]
       #
       # @return [String]
       def request_type(env)
@@ -71,17 +71,17 @@ module Faraday
         false
       end
 
-      # @param env [Faraday::Env]
+      # @param env [Faraknight::Env]
       # @param params [Hash]
       def create_multipart(env, params)
         boundary = env.request.boundary
         parts = process_params(params) do |key, value|
           part(boundary, key, value)
         end
-        parts << Faraday::Multipart::Parts::EpiloguePart.new(boundary)
+        parts << Faraknight::Multipart::Parts::EpiloguePart.new(boundary)
 
-        body = Faraday::Multipart::CompositeReadIO.new(parts)
-        env.request_headers[Faraday::Env::ContentLength] = body.length.to_s
+        body = Faraknight::Multipart::CompositeReadIO.new(parts)
+        env.request_headers[Faraknight::Env::ContentLength] = body.length.to_s
         body
       end
 
@@ -89,7 +89,7 @@ module Faraday
         if value.respond_to?(:to_part)
           value.to_part(boundary, key)
         else
-          Faraday::Multipart::Parts::Part.new(boundary, key, value)
+          Faraknight::Multipart::Parts::Part.new(boundary, key, value)
         end
       end
 

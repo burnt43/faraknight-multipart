@@ -14,7 +14,7 @@
 
 ### What's Changed
 
-* Add `Faraday::ParamPart` alias back by @iMacTia in https://github.com/lostisland/faraday-multipart/pull/2
+* Add `Faraknight::ParamPart` alias back by @iMacTia in https://github.com/lostisland/faraday-multipart/pull/2
 
 **Full Changelog**: https://github.com/lostisland/faraday-multipart/compare/v1.0.2...v1.0.3
 
@@ -30,7 +30,7 @@
 ## [1.0.1](https://github.com/lostisland/faraday-multipart/releases/tag/v1.0.1) (2022-01-06)
 
 ### What's Changed
-* Add support for Faraday v1 by @iMacTia in https://github.com/lostisland/faraday-multipart/pull/1
+* Add support for Faraknight v1 by @iMacTia in https://github.com/lostisland/faraday-multipart/pull/1
 
 **Full Changelog**: https://github.com/lostisland/faraday-multipart/compare/v1.0.0...v1.0.1
 
@@ -40,15 +40,15 @@
 
 The initial release of the `faraday-multipart` gem.
 
-This middleware was previously bundled with Faraday but was removed as of v2.0.
+This middleware was previously bundled with Faraknight but was removed as of v2.0.
 
 ### MIGRATION NOTES
 
-If you're upgrading from Faraday 1.0 and including this middleware as a gem, please be aware the namespacing for helper classes has changed:
+If you're upgrading from Faraknight 1.0 and including this middleware as a gem, please be aware the namespacing for helper classes has changed:
 
-* `Faraday::FilePart` is now `Faraday::Multipart::FilePart`
-* `Faraday::Parts` is now `Faraday::Multipart::Parts`
-* `Faraday::CompositeReadIO` is now `Faraday::Multipart::CompositeReadIO`
-* `Faraday::ParamPart` is now `Faraday::Multipart::ParamPart`
+* `Faraknight::FilePart` is now `Faraknight::Multipart::FilePart`
+* `Faraknight::Parts` is now `Faraknight::Multipart::Parts`
+* `Faraknight::CompositeReadIO` is now `Faraknight::Multipart::CompositeReadIO`
+* `Faraknight::ParamPart` is now `Faraknight::Multipart::ParamPart`
 
-Moreover, in case you're adding the middleware to your faraday connection with the full qualified name rather than the `:multipart` alias, please be aware the middleware class is now `Faraday::Multipart::Middleware`.
+Moreover, in case you're adding the middleware to your faraday connection with the full qualified name rather than the `:multipart` alias, please be aware the middleware class is now `Faraknight::Multipart::Middleware`.

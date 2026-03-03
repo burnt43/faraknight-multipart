@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Faraday
+module Faraknight
   # #:nodoc:
   module Multipart
     VERSION = '1.2.0'

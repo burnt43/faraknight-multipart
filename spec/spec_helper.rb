@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'faraday'
+require 'faraknight'
 require 'json'
-require_relative '../lib/faraday/multipart'
+require_relative '../lib/faraknight/multipart'
 
 Dir['./spec/support/**/*.rb'].sort.each { |f| require f }
 
@@ -19,5 +19,5 @@ RSpec.configure do |config|
 
   config.order = :random
 
-  config.include Faraday::Multipart::HelperMethods
+  config.include Faraknight::Multipart::HelperMethods
 end

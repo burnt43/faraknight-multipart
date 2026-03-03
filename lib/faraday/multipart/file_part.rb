@@ -2,7 +2,7 @@
 
 require 'stringio'
 
-module Faraday
+module Faraknight
   # Rubocop doesn't seem to understand that this is an extension to the
   # Multipart module, so let's add a nodoc
   # #:nodoc:
@@ -10,7 +10,7 @@ module Faraday
     # Multipart value used to POST a binary data from a file or
     #
     # @example
-    #   payload = { file: Faraday::FilePart.new("file_name.ext", "content/type") }
+    #   payload = { file: Faraknight::FilePart.new("file_name.ext", "content/type") }
     #   http.post("/upload", payload)
     #
 
@@ -28,7 +28,7 @@ module Faraday
     #     * Content-Type - Defaults to the content_type argument.
     #     * Content-ID - Optional.
     #
-    # @return [Faraday::FilePart]
+    # @return [Faraknight::FilePart]
     #
     # @!attribute [r] content_type
     # The uploaded binary data's content type.

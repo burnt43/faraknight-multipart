@@ -2,7 +2,7 @@
 
 require 'stringio'
 
-RSpec.describe Faraday::Multipart::CompositeReadIO do
+RSpec.describe Faraknight::Multipart::CompositeReadIO do
   Part = Struct.new(:to_io) do
     def length
       to_io.string.length

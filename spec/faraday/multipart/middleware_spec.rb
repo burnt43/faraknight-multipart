@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
-RSpec.describe Faraday::Multipart::Middleware do
+RSpec.describe Faraknight::Multipart::Middleware do
   let(:options) { {} }
   let(:conn) do
-    Faraday.new do |b|
+    Faraknight.new do |b|
       b.request :multipart, options
       b.request :url_encoded
       b.adapter :test do |stub|
         stub.post('/echo') do |env|
           posted_as = env[:request_headers]['Content-Type']
-          expect(env[:body]).to be_a_kind_of(Faraday::Multipart::CompositeReadIO)
+          expect(env[:body]).to be_a_kind_of(Faraknight::Multipart::CompositeReadIO)
           [200, { 'Content-Type' => posted_as }, env[:body].read]
         end
       end
@@ -32,7 +32,7 @@ RSpec.describe Faraday::Multipart::Middleware do
       {
         a: 1,
         b: {
-          c: Faraday::Multipart::FilePart.new(
+          c: Faraknight::Multipart::FilePart.new(
             __FILE__,
             'text/x-ruby',
             nil,
@@ -86,8 +86,8 @@ RSpec.describe Faraday::Multipart::Middleware do
 
     let(:payload) do
       {
-        json: Faraday::Multipart::ParamPart.new(json, 'application/json'),
-        io: Faraday::Multipart::FilePart.new(io, 'application/pdf')
+        json: Faraknight::Multipart::ParamPart.new(json, 'application/json'),
+        io: Faraknight::Multipart::FilePart.new(io, 'application/pdf')
       }
     end
 
@@ -119,7 +119,7 @@ RSpec.describe Faraday::Multipart::Middleware do
       {
         a: 1,
         b: [{
-          c: Faraday::Multipart::FilePart.new(
+          c: Faraknight::Multipart::FilePart.new(
             __FILE__,
             'text/x-ruby'
           ),
@@ -165,7 +165,7 @@ RSpec.describe Faraday::Multipart::Middleware do
       {
         a: 1,
         b: {
-          c: Faraday::Multipart::FilePart.new(
+          c: Faraknight::Multipart::FilePart.new(
             __FILE__,
             'text/x-ruby',
             nil,
@@ -219,8 +219,8 @@ RSpec.describe Faraday::Multipart::Middleware do
 
     let(:payload) do
       {
-        json: Faraday::Multipart::ParamPart.new(json, 'application/json'),
-        io: Faraday::Multipart::FilePart.new(io, 'application/pdf')
+        json: Faraknight::Multipart::ParamPart.new(json, 'application/json'),
+        io: Faraknight::Multipart::FilePart.new(io, 'application/pdf')
       }
     end
 
@@ -252,7 +252,7 @@ RSpec.describe Faraday::Multipart::Middleware do
       {
         a: 1,
         b: [{
-          c: Faraday::Multipart::FilePart.new(
+          c: Faraknight::Multipart::FilePart.new(
             __FILE__,
             'text/x-ruby'
           ),
@@ -300,8 +300,8 @@ RSpec.describe Faraday::Multipart::Middleware do
       {
         a: 1,
         b: [
-          Faraday::Multipart::FilePart.new(io, 'application/pdf'),
-          Faraday::Multipart::FilePart.new(io, 'application/pdf')
+          Faraknight::Multipart::FilePart.new(io, 'application/pdf'),
+          Faraknight::Multipart::FilePart.new(io, 'application/pdf')
         ]
       }
     end
@@ -319,8 +319,8 @@ RSpec.describe Faraday::Multipart::Middleware do
   context 'when passing content_type option' do
     let(:payload) do
       {
-        xml: Faraday::Multipart::ParamPart.new('<xml><value /></xml>', 'text/xml'),
-        io: Faraday::Multipart::FilePart.new(StringIO.new('io-content'), 'application/octet-stream')
+        xml: Faraknight::Multipart::ParamPart.new('<xml><value /></xml>', 'text/xml'),
+        io: Faraknight::Multipart::FilePart.new(StringIO.new('io-content'), 'application/octet-stream')
       }
     end
 

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe 'Faraday::Multipart::VERSION' do
+RSpec.describe 'Faraknight::Multipart::VERSION' do
   subject { Object.const_get(self.class.description) }
 
   it { is_expected.to match(/^\d+\.\d+\.\d+(\.\w+(\.\d+)?)?$/) }

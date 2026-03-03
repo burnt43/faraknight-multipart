@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
-require_relative 'lib/faraday/multipart/version'
+require_relative 'lib/faraknight/multipart/version'
 
 Gem::Specification.new do |spec|
-  spec.name = 'faraday-multipart'
-  spec.version = Faraday::Multipart::VERSION
+  spec.name = 'faraknight-multipart'
+  spec.version = Faraknight::Multipart::VERSION
   spec.authors = ['Mattia Giuffrida']
   spec.email = ['giuffrida.mattia@gmail.com']
 
-  spec.summary = 'Perform multipart-post requests using Faraday.'
+  spec.summary = 'Perform multipart-post requests using Faraknight.'
   spec.description = <<~DESC
-    Perform multipart-post requests using Faraday.
+    Perform multipart-post requests using Faraknight.
   DESC
   spec.license = 'MIT'
 

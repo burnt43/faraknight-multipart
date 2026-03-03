@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Faraday
+module Faraknight
   module Multipart
     # Multipart value used to POST data with a content type.
     class ParamPart
@@ -8,7 +8,7 @@ module Faraday
       # @param content_type [String] String content type of the value.
       # @param content_id [String] Optional String of this value's Content-ID.
       #
-      # @return [Faraday::ParamPart]
+      # @return [Faraknight::ParamPart]
       def initialize(value, content_type, content_id = nil)
         @value = value
         @content_type = content_type
@@ -21,9 +21,9 @@ module Faraday
       #   the content exactly.
       # @param key [String] String key name for this value.
       #
-      # @return [Faraday::Parts::Part]
+      # @return [Faraknight::Parts::Part]
       def to_part(boundary, key)
-        Faraday::Multipart::Parts::Part.new(boundary, key, value, headers)
+        Faraknight::Multipart::Parts::Part.new(boundary, key, value, headers)
       end
 
       # Returns a Hash of String key/value pairs.
