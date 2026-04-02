@@ -3,7 +3,7 @@
 module Faraknight
   # #:nodoc:
   module Multipart
-    VERSION = '1.2.0a'
+    VERSION = '1.2.0.a'
 
     def self.multipart_post_version
       require 'multipart/post/version'
